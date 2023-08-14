@@ -81,7 +81,7 @@ Clone this repository to your desired folder:
 Run the below command:
 
 ```sh
-cd <your disered folder name >
+cd <your desired folder name >
 git clone https://github.com/the-faizmohammad/Capstone-API-based-webapp
 ```
 ### Install
@@ -91,6 +91,8 @@ Install with below command:
 ```sh
   cd <your disered folder name >
   npm install
+  npm install webpack webpack cli --save -dev
+  npm run build
 ```
 
 ### Usage
@@ -98,7 +100,7 @@ Install with below command:
 To run the project, execute the following in the terminal:
 
 ```sh
-npm run dev
+npm run start
 ```
 
 <!-- AUTHORS -->
