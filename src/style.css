@@ -1,8 +1,13 @@
-body {
-  margin: 0 auto;
-  padding: 1%;
-  background-color: red;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+body {
+  background-color: #111;
 }
 
 header {
