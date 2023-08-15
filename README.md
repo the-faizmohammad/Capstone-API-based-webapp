@@ -13,7 +13,6 @@
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
-- [📖 Live Demo](#live-demo)
 - [🛠 Built With](#built-with)
 - [Tech Stack](#tech-stack)
 - [Key Features](#key-features)
