@@ -1,3 +1,7 @@
+// MovieList.js
+import { createCard } from './card';
+import { recordLike, getLikes } from './InvolvementAPI';
+
 const API_URL = 'https://api.tvmaze.com/shows';
 
 export async function fetchAndDisplayShows() {
@@ -11,9 +15,11 @@ export async function fetchAndDisplayShows() {
 
       const likesData = await getLikes(); // Fetch initial likes data
 
-     
-    });
-  
+      data.forEach(show => {
+        const showLikes = likesData.find(item => item.item_id === show.id);
+        const card = createCard(show, showLikes ? showLikes.likes : 0);
+
+        const likeButton = card.querySelector('.like-button');
 
         likeButton.addEventListener('click', async () => {
           const success = await recordLike(show.id);
@@ -28,4 +34,5 @@ export async function fetchAndDisplayShows() {
 
         showList.appendChild(card);
       });
+    });
 }
