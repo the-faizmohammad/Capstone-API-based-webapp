@@ -13,5 +13,8 @@ const createCard = (show, initialLikes = 0) => {
       <button class="comment-button">💬 Comment</button>
   </div>
 `;
-
+return card;
 };
+
+export default { createCard };
+
