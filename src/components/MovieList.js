@@ -1,38 +1,42 @@
-import createCard from './Card.js'; // Add .js extension
-import InvolvementAPI from './InvolvementAPI.js'; // Add .js extension
+// MovieList.js
+import createCard from './Card.js'; // Import createCard from Card.js
+import InvolvementAPI from './InvolvementAPI.js';
 
 const API_URL = 'https://api.tvmaze.com/shows';
 
 const fetchAndDisplayShows = async () => {
-  fetch(API_URL)
-    .then((response) => response.json())
-    .then(async (data) => {
-      const showList = document.getElementById('showList');
-      const totalItems = document.getElementById('totalItems');
+    fetch(API_URL)
+        .then(response => response.json())
+        .then(async data => {
+            const showList = document.getElementById('showList');
+            const totalItems = document.getElementById('totalItems');
 
-      totalItems.textContent = `Total Shows: ${data.length}`;
+            totalItems.textContent = `Total Shows: ${data.length}`;
 
-      data.forEach(async (show) => {
-        const card = createCard(show);
+            data.forEach(async show => {
+                const likesData = await InvolvementAPI.getLikes();
+                const showLikes = likesData.find(item => item.item_id === show.id);
 
-        const likeButton = card.querySelector('.like-button');
+                const initialLikes = showLikes ? showLikes.likes : 0;
 
-        likeButton.addEventListener('click', async () => {
-          const success = await InvolvementAPI.recordLike(show.id);
-          if (success) {
-            const likesData = await InvolvementAPI.getLikes();
-            if (likesData) {
-              const showLikes = likesData.find((item) => item.item_id === show.id);
-              if (showLikes) {
-                likeButton.textContent = `❤️ Like (${showLikes.likes})`;
-              }
-            }
-          }
+                const card = createCard(show, initialLikes);
+
+                const likeButton = card.querySelector('.like-button');
+
+                likeButton.addEventListener('click', async () => {
+                    const success = await InvolvementAPI.recordLike(show.id);
+                    if (success) {
+                        const updatedLikesData = await InvolvementAPI.getLikes();
+                        const updatedShowLikes = updatedLikesData.find(item => item.item_id === show.id);
+                        if (updatedShowLikes) {
+                            likeButton.textContent = `❤️ Like (${updatedShowLikes.likes})`;
+                        }
+                    }
+                });
+
+                showList.appendChild(card);
+            });
         });
-
-        showList.appendChild(card);
-      });
-    });
 };
 
-export default fetchAndDisplayShows; // Export as default
+export default fetchAndDisplayShows;
