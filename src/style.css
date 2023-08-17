@@ -1,5 +1,9 @@
 /* Reset default margin and padding */
-body, h1, h2, h3, p {
+body,
+h1,
+h2,
+h3,
+p {
   margin: 0;
   padding: 0;
 }
@@ -8,7 +12,7 @@ body, h1, h2, h3, p {
 body {
   font-family: Arial, sans-serif;
   background-color: #141414;
-  color: #ffffff;
+  color: #fff;
   margin: 0;
   padding: 0;
 }
@@ -97,7 +101,7 @@ nav {
   cursor: pointer;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
   background-color: #1f1f1f;
-  color: #ffffff;
+  color: #fff;
   display: flex;
   align-items: center; /* Align content vertically */
 }
@@ -106,6 +110,7 @@ nav {
 .comment-button:hover {
   background-color: #d30813;
 }
+
 /* Like count */
 .like-count {
   font-weight: bold;
