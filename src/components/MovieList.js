@@ -13,4 +13,19 @@ export async function fetchAndDisplayShows() {
 
      
     });
+  
+
+        likeButton.addEventListener('click', async () => {
+          const success = await recordLike(show.id);
+          if (success) {
+            const updatedLikesData = await getLikes();
+            const updatedShowLikes = updatedLikesData.find(item => item.item_id === show.id);
+            if (updatedShowLikes) {
+              likeButton.textContent = `❤️ Like (${updatedShowLikes.likes})`; // Update like count on click
+            }
+          }
+        });
+
+        showList.appendChild(card);
+      });
 }
