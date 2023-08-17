@@ -1,5 +1,5 @@
 const API_BASE_URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/';
-const APP_ID = 'kWOTV5VjYokcGzg5Fbds';
+const APP_ID = 'kWOTV5VjYokcGzg5Fbds'; // Provided app_id
 
 // Function to record a like for a specific item
 export async function recordLike(itemId) {
@@ -13,11 +13,9 @@ export async function recordLike(itemId) {
 
   if (response.status === 201) {
     return true; // Like recorded successfully
-  } else {
-    return false; // Like recording failed
   }
+  return false; // Like recording failed
 }
-
 // Function to get a list of items with respective likes
 export async function getLikes() {
   const response = await fetch(`${API_BASE_URL}apps/${APP_ID}/likes/`);
@@ -25,7 +23,6 @@ export async function getLikes() {
   if (response.status === 200) {
     const data = await response.json();
     return data;
-  } else {
-    return null;
   }
+  return null;
 }

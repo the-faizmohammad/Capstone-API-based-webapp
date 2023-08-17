@@ -1,5 +1,4 @@
-// MovieList.js
-import { createCard } from './card.js';
+import { createCard } from './Card.js';
 import { recordLike, getLikes } from './InvolvementAPI.js';
 
 const API_URL = 'https://api.tvmaze.com/shows';

@@ -1,6 +1,6 @@
 import './style.css';
-import { fetchAndDisplayShows } from './components/MovieList';
+import { fetchAndDisplayShows } from './components/MovieList.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    fetchAndDisplayShows();
+  fetchAndDisplayShows();
 });
