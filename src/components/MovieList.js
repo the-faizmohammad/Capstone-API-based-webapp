@@ -1,13 +1,13 @@
 // MovieList.js
-import { createCard } from './card';
+import { createCard } from './card.js';
 import { recordLike, getLikes } from './InvolvementAPI.js';
 
 const API_URL = 'https://api.tvmaze.com/shows';
 
-export async function fetchAndDisplayShows() {
+export default async function fetchAndDisplayShows() {
   fetch(API_URL)
-    .then(response => response.json())
-    .then(async data => {
+    .then((response) => response.json())
+    .then(async (data) => {
       const showList = document.getElementById('showList');
       const totalItems = document.getElementById('totalItems');
 
@@ -15,8 +15,8 @@ export async function fetchAndDisplayShows() {
 
       const likesData = await getLikes(); // Fetch initial likes data
 
-      data.forEach(show => {
-        const showLikes = likesData.find(item => item.item_id === show.id);
+      data.forEach((show) => {
+        const showLikes = likesData.find((item) => item.item_id === show.id);
         const card = createCard(show, showLikes ? showLikes.likes : 0);
 
         const likeButton = card.querySelector('.like-button');
@@ -25,7 +25,7 @@ export async function fetchAndDisplayShows() {
           const success = await recordLike(show.id);
           if (success) {
             const updatedLikesData = await getLikes();
-            const updatedShowLikes = updatedLikesData.find(item => item.item_id === show.id);
+            const updatedShowLikes = updatedLikesData.find((item) => item.item_id === show.id);
             if (updatedShowLikes) {
               likeButton.textContent = `❤️ Like (${updatedShowLikes.likes})`; // Update like count on click
             }
