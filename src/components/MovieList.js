@@ -1,9 +1,9 @@
-import { createCard } from './Card.js';
-import { recordLike, getLikes } from './InvolvementAPI.js';
+import createCard from './Card.js'; // Add .js extension
+import InvolvementAPI from './InvolvementAPI.js'; // Add .js extension
 
 const API_URL = 'https://api.tvmaze.com/shows';
 
-export default async function fetchAndDisplayShows() {
+const fetchAndDisplayShows = async () => {
   fetch(API_URL)
     .then((response) => response.json())
     .then(async (data) => {
@@ -12,21 +12,20 @@ export default async function fetchAndDisplayShows() {
 
       totalItems.textContent = `Total Shows: ${data.length}`;
 
-      const likesData = await getLikes(); // Fetch initial likes data
-
-      data.forEach((show) => {
-        const showLikes = likesData.find((item) => item.item_id === show.id);
-        const card = createCard(show, showLikes ? showLikes.likes : 0);
+      data.forEach(async (show) => {
+        const card = createCard(show);
 
         const likeButton = card.querySelector('.like-button');
 
         likeButton.addEventListener('click', async () => {
-          const success = await recordLike(show.id);
+          const success = await InvolvementAPI.recordLike(show.id);
           if (success) {
-            const updatedLikesData = await getLikes();
-            const updatedShowLikes = updatedLikesData.find((item) => item.item_id === show.id);
-            if (updatedShowLikes) {
-              likeButton.textContent = `❤️ Like (${updatedShowLikes.likes})`; // Update like count on click
+            const likesData = await InvolvementAPI.getLikes();
+            if (likesData) {
+              const showLikes = likesData.find((item) => item.item_id === show.id);
+              if (showLikes) {
+                likeButton.textContent = `❤️ Like (${showLikes.likes})`;
+              }
             }
           }
         });
@@ -34,4 +33,6 @@ export default async function fetchAndDisplayShows() {
         showList.appendChild(card);
       });
     });
-}
+};
+
+export default fetchAndDisplayShows; // Export as default

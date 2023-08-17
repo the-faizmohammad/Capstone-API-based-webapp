@@ -2,7 +2,7 @@ const API_BASE_URL = 'https://us-central1-involvement-api.cloudfunctions.net/cap
 const APP_ID = 'kWOTV5VjYokcGzg5Fbds'; // Provided app_id
 
 // Function to record a like for a specific item
-export async function recordLike(itemId) {
+const recordLike = async (itemId) => {
   const response = await fetch(`${API_BASE_URL}apps/${APP_ID}/likes/`, {
     method: 'POST',
     headers: {
@@ -15,9 +15,10 @@ export async function recordLike(itemId) {
     return true; // Like recorded successfully
   }
   return false; // Like recording failed
-}
+};
+
 // Function to get a list of items with respective likes
-export async function getLikes() {
+const getLikes = async () => {
   const response = await fetch(`${API_BASE_URL}apps/${APP_ID}/likes/`);
 
   if (response.status === 200) {
@@ -25,4 +26,9 @@ export async function getLikes() {
     return data;
   }
   return null;
-}
+};
+
+export default {
+  recordLike,
+  getLikes,
+};

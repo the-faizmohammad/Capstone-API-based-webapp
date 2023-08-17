@@ -1,4 +1,4 @@
-export default function createCard(show, initialLikes = 0) {
+const createCard = (show, initialLikes = 0) => {
   const card = document.createElement('div');
   card.classList.add('card');
   card.innerHTML = `
@@ -14,4 +14,6 @@ export default function createCard(show, initialLikes = 0) {
         </div>
     `;
   return card;
-}
+};
+
+export default createCard;
