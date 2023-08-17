@@ -116,3 +116,57 @@ nav {
   font-weight: bold;
   margin-left: 4px;
 }
+
+.popup-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #181818; /* Update to your desired background color */
+  color: #fff;
+  padding: 40px; /* Increase padding for more space */
+  border-radius: 10px; /* Increase border-radius for rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  max-width: 90%; /* Increase max-width for a larger popup */
+}
+
+/* Rest of your existing popup styles... */
+
+/* Comment form styles */
+.comment-form input,
+.comment-form textarea {
+  display: block;
+  width: 100%;
+  padding: 10px; /* Add padding for spacing */
+  margin-bottom: 15px;
+  border: none;
+  background-color: #282828; /* Update to your desired background color */
+  color: #fff;
+  border-radius: 5px;
+}
+
+.comment-form textarea {
+  resize: vertical;
+}
+
+.comment-form button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #d30813; /* Update to your desired background color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.comment-form button:hover {
+  background-color: #b10909; /* Update to your desired hover color */
+}
+
+.comment-list {
+  margin-top: 20px;
+  max-height: 150px; /* Set a maximum height for scrollable overflow */
+  overflow-y: auto; /* Enable vertical scrolling when content overflows */
+}
