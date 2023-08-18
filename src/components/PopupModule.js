@@ -1,5 +1,37 @@
 import InvolvementAPI from './InvolvementAPI.js';
 
+// Function to format date into human-readable format
+const formatDate = (dateString) => {
+  if (!dateString || dateString === 'Invalid Date') {
+    return 'Date unknown';
+  }
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return new Date(dateString).toLocaleDateString(undefined, options);
+};
+
+// Function to update the comment list
+const updateCommentList = async (itemId, commentListElement, commentCountElement) => {
+  const comments = await InvolvementAPI.getComments(itemId);
+  if (comments && comments.length > 0) {
+    const commentsHTML = comments
+      .map((comment, index) => `
+        <div class="comment-item ${index % 2 === 0 ? 'even' : 'odd'}">
+          <div class="comment-header">
+            <p class="comment-username">${comment.username}</p>
+            <p class="comment-date">${formatDate(comment.creation_date)}</p>
+          </div>
+          <p class="comment-text">${comment.comment}</p>
+        </div>
+      `)
+      .join('');
+    commentListElement.innerHTML = commentsHTML;
+    commentCountElement.textContent = `Comments (${comments.length})`;
+  } else {
+    commentListElement.innerHTML = '<p class="no-comments">No comments yet.</p>';
+    commentCountElement.textContent = 'Comments (0)';
+  }
+};
+
 const showPopup = async (show) => {
   // Create and style the popup container
   const popupContainer = document.createElement('div');
@@ -58,39 +90,6 @@ const showPopup = async (show) => {
   });
 
   await updateCommentList(show.id, commentListElement, commentCountElement);
-};
-
-// Function to update the comment list
-const updateCommentList = async (itemId, commentListElement, commentCountElement) => {
-  const comments = await InvolvementAPI.getComments(itemId);
-  if (comments && comments.length > 0) {
-    const commentsHTML = comments
-      .map((comment, index) => `
-        <div class="comment-item ${index % 2 === 0 ? 'even' : 'odd'}">
-          <div class="comment-header">
-            <p class="comment-username">${comment.username}</p>
-            <p class="comment-date">${formatDate(comment.creation_date)}</p>
-          </div>
-          <p class="comment-text">${comment.comment}</p>
-        </div>
-      `)
-      .join('');
-    commentListElement.innerHTML = commentsHTML;
-    commentCountElement.textContent = `Comments (${comments.length})`;
-  } else {
-    commentListElement.innerHTML = '<p class="no-comments">No comments yet.</p>';
-    commentCountElement.textContent = 'Comments (0)';
-  }
-};
-
-// Function to format date into human-readable format
-const formatDate = (dateString) => {
-  if (!dateString || dateString === 'Invalid Date') {
-    return 'Date unknown';
-  }
-
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  return new Date(dateString).toLocaleDateString(undefined, options);
 };
 
 export default showPopup;
