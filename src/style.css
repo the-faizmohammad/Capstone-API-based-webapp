@@ -1,9 +1,5 @@
 /* Reset default margin and padding */
-body,
-h1,
-h2,
-h3,
-p {
+body, h1, h2, h3, p {
   margin: 0;
   padding: 0;
 }
@@ -12,7 +8,7 @@ p {
 body {
   font-family: Arial, sans-serif;
   background-color: #141414;
-  color: #fff;
+  color: #ffffff;
   margin: 0;
   padding: 0;
 }
@@ -101,7 +97,7 @@ nav {
   cursor: pointer;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
   background-color: #1f1f1f;
-  color: #fff;
+  color: #ffffff;
   display: flex;
   align-items: center; /* Align content vertically */
 }
@@ -110,38 +106,84 @@ nav {
 .comment-button:hover {
   background-color: #d30813;
 }
-
 /* Like count */
 .like-count {
   font-weight: bold;
   margin-left: 4px;
 }
 
+/* Popup styles */
 .popup-container {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #181818; /* Update to your desired background color */
+  background-color: #181818;
   color: #fff;
-  padding: 40px; /* Increase padding for more space */
-  border-radius: 10px; /* Increase border-radius for rounded corners */
+  padding: 30px;
+  border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   z-index: 1000;
-  max-width: 90%; /* Increase max-width for a larger popup */
+  max-width: 100%;
+  width: 80%;
+  height: 70%; /* Increase the height of the popup */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  overflow-y: auto; /* Enable vertical scrolling */
 }
 
-/* Rest of your existing popup styles... */
+.popup-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
 
-/* Comment form styles */
+.popup-header img {
+  width: 250px;
+  height: auto;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.popup-header button {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.popup-header button:hover {
+  color: #d30813;
+}
+
+.popup-content {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.comment-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-form {
+  padding: 10px;
+  background-color: #282828;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
 .comment-form input,
 .comment-form textarea {
-  display: block;
-  width: 100%;
-  padding: 10px; /* Add padding for spacing */
-  margin-bottom: 15px;
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 10px;
   border: none;
-  background-color: #282828; /* Update to your desired background color */
+  background-color: #1f1f1f;
   color: #fff;
   border-radius: 5px;
 }
@@ -150,10 +192,9 @@ nav {
   resize: vertical;
 }
 
-.comment-form button {
-  display: inline-block;
+.popup-comment-button {
   padding: 10px 20px;
-  background-color: #d30813; /* Update to your desired background color */
+  background-color: #d30813;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -161,12 +202,51 @@ nav {
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-.comment-form button:hover {
-  background-color: #b10909; /* Update to your desired hover color */
+.popup-comment-button:hover {
+  background-color: #b10909;
 }
 
 .comment-list {
-  margin-top: 20px;
-  max-height: 150px; /* Set a maximum height for scrollable overflow */
-  overflow-y: auto; /* Enable vertical scrolling when content overflows */
+  max-height: 320px;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: #282828;
+  border-radius: 5px;
+  color: #fff;
+  height: 300px;
+  width: 620px;
+}
+
+.comment-list p {
+  margin-bottom: 8px;
+}
+.popup-close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  cursor: pointer;
+  color: #090909; 
+  transition: color 0.3s ease-in-out;
+  margin: 20px;
+  font-weight: bolder;
+}
+
+.popup-close-button:hover {
+  color: red; /* Change the color on hover */
+}
+
+.popup-content a {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: #e50914;
+  color: #ffffff;
+  font-size: 14px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.popup-content a:hover {
+  background-color: #d30813;
 }
