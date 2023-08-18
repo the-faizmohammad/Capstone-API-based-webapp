@@ -50,3 +50,23 @@ describe('InvolvementAPI Tests', () => {
     expect(fetch).toHaveBeenCalledTimes(1);
   });
 });
+
+// Test the recordComment function
+it('should record a comment successfully', async () => {
+  fetch.mockResolvedValue({ status: 201 });
+  const success = await InvolvementAPI.recordComment(123, 'username', 'test comment');
+  expect(success).toBe(true);
+  expect(fetch).toHaveBeenCalledTimes(1);
+});
+
+it('should handle comment recording failure', async () => {
+  fetch.mockResolvedValue({ status: 400, json: async () => ({}) });
+
+  const success = await InvolvementAPI.recordComment(123, 'username', 'test comment');
+  expect(success).toBe(false);
+  // Use setTimeout with a delay of 0 milliseconds
+  await new Promise((resolve) => setTimeout(resolve, 0));
+  setTimeout(() => {
+    expect(fetch).toHaveBeenCalledTimes(1);
+  }, 0);
+});
