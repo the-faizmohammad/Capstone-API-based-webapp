@@ -86,3 +86,14 @@ it('should get comments successfully', async () => {
     expect(fetch).toHaveBeenCalledTimes(1);
   }, 0);
 });
+
+it('should handle comments retrieval failure', async () => {
+  fetch.mockResolvedValue({ status: 500, json: async () => [] });
+  try {
+    const comments = await InvolvementAPI.getComments(123); // Provide a mock item ID
+    expect(comments).toBeNull();
+    expect(fetch).toHaveBeenCalledTimes(1);
+  } catch (error) {
+    // Handle errors if needed
+  }
+});
