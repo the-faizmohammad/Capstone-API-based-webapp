@@ -26,3 +26,27 @@ describe('InvolvementAPI Tests', () => {
     expect(success).toBe(false);
     expect(fetch).toHaveBeenCalledTimes(1);
   });
+  // Test the getLikes function
+  it('should get likes successfully', async () => {
+    // const mockCommentsData = [
+    //   { item_id: 123, comment: 'Test comment 1' },
+    //   { item_id: 123, comment: 'Test comment 2' },
+    // ];
+    fetch.mockResolvedValue({
+      status: 200,
+      json: async () => mockLikesData,
+    });
+
+    const likes = await InvolvementAPI.getLikes();
+    expect(likes).toEqual(mockLikesData);
+    expect(fetch).toHaveBeenCalledTimes(1);
+  });
+
+  it('should handle likes retrieval failure', async () => {
+    fetch.mockResolvedValue({ status: 500 });
+
+    const likes = await InvolvementAPI.getLikes();
+    expect(likes).toBeNull();
+    expect(fetch).toHaveBeenCalledTimes(1);
+  });
+});
