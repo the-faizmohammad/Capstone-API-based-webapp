@@ -18,7 +18,7 @@
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
 - [👥 Authors](#authors)
-- [👥 Video walk through]()
+- [👥 Video walk through](https://docs.google.com/document/d/1coMyytLPZBQHYkdI8uCOmg67MoH9kO3fwbFYKx6Q2Eo/edit?usp=sharing)
 - [🚀Live Demo](https://the-faizmohammad.github.io/Capstone-API-based-webapp/dist/)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -49,7 +49,11 @@ Some of the key features:
 - Linters Setup
 -Used Unit Test using Jest for testing Comment & Like counters.
 
+## 💻 Live Demo <a name="Live-Demo"></a>
 
+[🚀 Video walk through](https://docs.google.com/document/d/1coMyytLPZBQHYkdI8uCOmg67MoH9kO3fwbFYKx6Q2Eo/edit?usp=sharing)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 💻 Live Demo <a name="Live-Demo"></a>
