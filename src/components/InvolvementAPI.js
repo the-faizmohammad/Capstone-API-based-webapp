@@ -1,5 +1,5 @@
 const API_BASE_URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/';
-const APP_ID = 'kWOTV5VjYokcGzg5Fbds'; // Provided app_id
+const APP_ID = 'kWOTV5VjYokcGzg5Fbds';
 
 // Function to record a like for a specific item
 const recordLike = async (itemId) => {
@@ -12,9 +12,9 @@ const recordLike = async (itemId) => {
   });
 
   if (response.status === 201) {
-    return true; // Like recorded successfully
+    return true; 
   }
-  return false; // Like recording failed
+  return false; 
 };
 
 // Function to get a list of items with respective likes
@@ -39,9 +39,9 @@ const recordComment = async (itemId, username, comment) => {
   });
 
   if (response.status === 201) {
-    return true; // Comment recorded successfully
+    return true; 
   }
-  return false; // Comment recording failed
+  return false; 
 };
 
 // Function to get a list of comments for a specific item
