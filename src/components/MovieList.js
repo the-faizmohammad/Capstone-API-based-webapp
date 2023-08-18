@@ -1,4 +1,5 @@
 import InvolvementAPI from './InvolvementAPI.js';
+import showPopup from './PopupModule.js';
 // Create cards
 const createCard = (show, initialLikes = 0) => {
   const card = document.createElement('div');
@@ -22,32 +23,37 @@ const API_URL = 'https://api.tvmaze.com/shows';
 
 const fetchAndDisplayShows = async () => {
   fetch(API_URL)
-    .then((response) => response.json())
-    .then(async (data) => {
+    .then(response => response.json())
+    .then(async data => {
       const showList = document.getElementById('showList');
       const totalItems = document.getElementById('totalItems');
 
       totalItems.textContent = `Total Shows: ${data.length}`;
 
-      data.forEach(async (show) => {
+      data.forEach(async show => {
         const likesData = await InvolvementAPI.getLikes();
-        const showLikes = likesData.find((item) => item.item_id === show.id);
+        const showLikes = likesData.find(item => item.item_id === show.id);
 
         const initialLikes = showLikes ? showLikes.likes : 0;
 
         const card = createCard(show, initialLikes);
 
         const likeButton = card.querySelector('.like-button');
+        const commentButton = card.querySelector('.comment-button');
 
         likeButton.addEventListener('click', async () => {
           const success = await InvolvementAPI.recordLike(show.id);
           if (success) {
             const updatedLikesData = await InvolvementAPI.getLikes();
-            const updatedShowLikes = updatedLikesData.find((item) => item.item_id === show.id);
+            const updatedShowLikes = updatedLikesData.find(item => item.item_id === show.id);
             if (updatedShowLikes) {
               likeButton.textContent = `❤️ Like (${updatedShowLikes.likes})`;
             }
           }
+        });
+
+        commentButton.addEventListener('click', () => {
+          showPopup(show); // Show popup with details and comments
         });
 
         showList.appendChild(card);
