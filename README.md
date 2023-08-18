@@ -114,7 +114,6 @@ Must-Install-Project-with-the-Following-Programmes:
 👤 **Arafat Hossain**
 
 - GitHub: [@githubhandle](https://github.com/)
-- Twitter: [@gmail](email2faizm@gmail.com)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/md-arafat-hossain-111403275/)
 
 ## 🔭 Future Features <a name="future-features"></a>
