@@ -56,3 +56,6 @@ const mainContainer = document.querySelector('main .container');
       }
     }
   });
+
+  await updateCommentList(show.id, commentListElement, commentCountElement);
+};

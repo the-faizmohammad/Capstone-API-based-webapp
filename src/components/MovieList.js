@@ -1,4 +1,3 @@
-// import createCard from './Card.js'; // Import createCard from Card.js
 import InvolvementAPI from './InvolvementAPI.js';
 // Create cards
 const createCard = (show, initialLikes = 0) => {
