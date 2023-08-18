@@ -3,7 +3,7 @@
 <br/>
 <h3><b>Metflix-Javascript API based APP</b></h3>
 
-![image](https://github.com/the-faizmohammad/Capstone-API-based-webapp/assets/134736318/bfab5f05-75f1-4885-bb68-2aa7d5b7e578)
+![image](https://github.com/the-faizmohammad/Capstone-API-based-webapp/assets/134736318/3464bab1-1c2c-4516-8aca-4d330840a518)
 
 
 </div>
@@ -18,7 +18,7 @@
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
 - [👥 Authors](#authors)
-- [👥 Video walk through](https://docs.google.com/document/d/1coMyytLPZBQHYkdI8uCOmg67MoH9kO3fwbFYKx6Q2Eo/edit?usp=sharing)
+- [👥 Video walk through](https://drive.google.com/drive/folders/1Z15ctH1xsSom5QCqVZdPDAtR6ziwEdjW?usp=drive_link)
 - [🚀Live Demo](https://the-faizmohammad.github.io/Capstone-API-based-webapp/dist/)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -51,7 +51,7 @@ Some of the key features:
 
 ## 💻 Live Demo <a name="Live-Demo"></a>
 
-[🚀 Video walk through](https://docs.google.com/document/d/1coMyytLPZBQHYkdI8uCOmg67MoH9kO3fwbFYKx6Q2Eo/edit?usp=sharing)
+[🚀 Video walk through](https://drive.google.com/drive/folders/1Z15ctH1xsSom5QCqVZdPDAtR6ziwEdjW?usp=drive_link)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
