@@ -29,3 +29,14 @@ const showPopup = async (show) => {
       <!-- Comment list will be populated here -->
     </div>
   `;
+const mainContainer = document.querySelector('main .container');
+  mainContainer.parentNode.insertBefore(popupContainer, mainContainer);
+
+  const commentListElement = popupContainer.querySelector('.comment-list');
+  const commentCountElement = popupContainer.querySelector('.comment-count');
+
+  // Handle the close button click inside the popup
+  const closeButton = popupContainer.querySelector('.popup-close-button');
+  closeButton.addEventListener('click', () => {
+    popupContainer.remove();
+  });
