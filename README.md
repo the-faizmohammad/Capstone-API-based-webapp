@@ -107,14 +107,15 @@ Must-Install-Project-with-the-Following-Programmes:
 
 👤 **Faiz Mohammad**
 
-- GitHub: [@githubhandle](https://github.com/the-faizmohammad)
+- GitHub: [@githubhandle](https://github.com/HossainAraf)
 - Twitter: [@gmail](email2faizm@gmail.com)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/faiz-mohammad-967354142/)
+  
 👤 **Arafat Hossain**
 
-- GitHub: [@githubhandle](https://github.com/the-faizmohammad)
+- GitHub: [@githubhandle](https://github.com/)
 - Twitter: [@gmail](email2faizm@gmail.com)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/faiz-mohammad-967354142/)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/md-arafat-hossain-111403275/)
 
 ## 🔭 Future Features <a name="future-features"></a>
 
