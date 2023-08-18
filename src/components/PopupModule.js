@@ -8,7 +8,7 @@ const showPopup = async (show) => {
   // Fetch details about the selected show from TVmaze API
   const response = await fetch(`https://api.tvmaze.com/shows/${show.id}`);
   const showDetails = await response.json();
-// Populate the popup content with show details
+  // Populate the popup content with show details
   popupContainer.innerHTML = `
     <div class="popup-header">
       <img src="${showDetails.image.medium}" alt="${showDetails.name}">
@@ -29,7 +29,7 @@ const showPopup = async (show) => {
       <!-- Comment list will be populated here -->
     </div>
   `;
-const mainContainer = document.querySelector('main .container');
+  const mainContainer = document.querySelector('main .container');
   mainContainer.parentNode.insertBefore(popupContainer, mainContainer);
 
   const commentListElement = popupContainer.querySelector('.comment-list');
@@ -40,7 +40,7 @@ const mainContainer = document.querySelector('main .container');
   closeButton.addEventListener('click', () => {
     popupContainer.remove();
   });
- const commentButton = popupContainer.querySelector('.popup-comment-button');
+  const commentButton = popupContainer.querySelector('.popup-comment-button');
   commentButton.addEventListener('click', async () => {
     const commentName = popupContainer.querySelector('#commentName').value;
     const commentText = popupContainer.querySelector('#commentText').value;
@@ -59,7 +59,6 @@ const mainContainer = document.querySelector('main .container');
 
   await updateCommentList(show.id, commentListElement, commentCountElement);
 };
-
 
 // Function to update the comment list
 const updateCommentList = async (itemId, commentListElement, commentCountElement) => {
@@ -83,3 +82,15 @@ const updateCommentList = async (itemId, commentListElement, commentCountElement
     commentCountElement.textContent = 'Comments (0)';
   }
 };
+
+// Function to format date into human-readable format
+const formatDate = (dateString) => {
+  if (!dateString || dateString === 'Invalid Date') {
+    return 'Date unknown';
+  }
+
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return new Date(dateString).toLocaleDateString(undefined, options);
+};
+
+export default showPopup;
