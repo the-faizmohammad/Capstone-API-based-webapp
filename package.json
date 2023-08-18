@@ -33,5 +33,6 @@
   },
   "dependencies": {
     "cli": "^1.0.1"
-  }
+  },
+  "main": "jest.config.js"
 }

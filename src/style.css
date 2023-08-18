@@ -1,32 +1,172 @@
-
-* {
+/* Reset default margin and padding */
+body,
+h1,
+h2,
+h3,
+p {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  background-color: #111;
 }
 
+/* Body styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #141414;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
 header {
+  background-color: #b10909;
+  color: #fff;
+  padding: 20px 0;
+  height: 50px;
+}
+
+nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #111;
-  padding: 10px 20px;
-  border-bottom: 1px solid #333;
-  color: #ef0c0c;
+  padding: 0 20px;
 }
 
-.logo img {
-  max-height: 50px;
+.main-logo {
+  font-weight: bolder;
+  font-size: 48px;
+  margin-left: 35px;
 }
 
-.item-count p {
-  font-size: 16px;
-  margin: 0;
-}
-
-.item-count strong {
+.total-items {
+  font-size: 18px;
   font-weight: bold;
+  margin-right: 30px;
+}
+
+/* Main content container */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Movie card styles */
+.card {
+  background-color: #181818;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 15px;
+  overflow: hidden;
+  position: relative;
+  width: 220px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 5px 5px 0 0;
+}
+
+.card-content {
+  padding: 10px;
+}
+
+.card h3 {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.like-button,
+.comment-button {
+  padding: 6px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  background-color: #1f1f1f;
   color: #fff;
+  display: flex;
+  align-items: center; /* Align content vertically */
+}
+
+.like-button:hover,
+.comment-button:hover {
+  background-color: #d30813;
+}
+
+/* Like count */
+.like-count {
+  font-weight: bold;
+  margin-left: 4px;
+}
+
+.popup-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #181818; /* Update to your desired background color */
+  color: #fff;
+  padding: 40px; /* Increase padding for more space */
+  border-radius: 10px; /* Increase border-radius for rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  max-width: 90%; /* Increase max-width for a larger popup */
+}
+
+/* Rest of your existing popup styles... */
+
+/* Comment form styles */
+.comment-form input,
+.comment-form textarea {
+  display: block;
+  width: 100%;
+  padding: 10px; /* Add padding for spacing */
+  margin-bottom: 15px;
+  border: none;
+  background-color: #282828; /* Update to your desired background color */
+  color: #fff;
+  border-radius: 5px;
+}
+
+.comment-form textarea {
+  resize: vertical;
+}
+
+.comment-form button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #d30813; /* Update to your desired background color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.comment-form button:hover {
+  background-color: #b10909; /* Update to your desired hover color */
+}
+
+.comment-list {
+  margin-top: 20px;
+  max-height: 150px; /* Set a maximum height for scrollable overflow */
+  overflow-y: auto; /* Enable vertical scrolling when content overflows */
 }
