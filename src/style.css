@@ -1,5 +1,9 @@
 /* Reset default margin and padding */
-body, h1, h2, h3, p {
+body,
+h1,
+h2,
+h3,
+p {
   margin: 0;
   padding: 0;
 }
@@ -8,7 +12,7 @@ body, h1, h2, h3, p {
 body {
   font-family: Arial, sans-serif;
   background-color: #141414;
-  color: #ffffff;
+  color: #fff;
   margin: 0;
   padding: 0;
 }
@@ -97,7 +101,7 @@ nav {
   cursor: pointer;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
   background-color: #1f1f1f;
-  color: #ffffff;
+  color: #fff;
   display: flex;
   align-items: center; /* Align content vertically */
 }
@@ -106,6 +110,7 @@ nav {
 .comment-button:hover {
   background-color: #d30813;
 }
+
 /* Like count */
 .like-count {
   font-weight: bold;
@@ -220,13 +225,14 @@ nav {
 .comment-list p {
   margin-bottom: 8px;
 }
+
 .popup-close-button {
   position: absolute;
   top: 0;
   right: 0;
   padding: 10px;
   cursor: pointer;
-  color: #090909; 
+  color: #090909;
   transition: color 0.3s ease-in-out;
   margin: 20px;
   font-weight: bolder;
@@ -240,7 +246,7 @@ nav {
   display: inline-block;
   padding: 6px 12px;
   background-color: #e50914;
-  color: #ffffff;
+  color: #fff;
   font-size: 14px;
   border-radius: 4px;
   text-decoration: none;
