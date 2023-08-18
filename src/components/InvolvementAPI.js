@@ -12,9 +12,9 @@ const recordLike = async (itemId) => {
   });
 
   if (response.status === 201) {
-    return true; 
+    return true;
   }
-  return false; 
+  return false;
 };
 
 // Function to get a list of items with respective likes
@@ -39,9 +39,9 @@ const recordComment = async (itemId, username, comment) => {
   });
 
   if (response.status === 201) {
-    return true; 
+    return true;
   }
-  return false; 
+  return false;
 };
 
 // Function to get a list of comments for a specific item

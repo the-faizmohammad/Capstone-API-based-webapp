@@ -23,16 +23,16 @@ const API_URL = 'https://api.tvmaze.com/shows';
 
 const fetchAndDisplayShows = async () => {
   fetch(API_URL)
-    .then(response => response.json())
-    .then(async data => {
+    .then((response) => response.json())
+    .then(async (data) => {
       const showList = document.getElementById('showList');
       const totalItems = document.getElementById('totalItems');
 
       totalItems.textContent = `Total Shows: ${data.length}`;
 
-      data.forEach(async show => {
+      data.forEach(async (show) => {
         const likesData = await InvolvementAPI.getLikes();
-        const showLikes = likesData.find(item => item.item_id === show.id);
+        const showLikes = likesData.find((item) => item.item_id === show.id);
 
         const initialLikes = showLikes ? showLikes.likes : 0;
 
@@ -45,7 +45,7 @@ const fetchAndDisplayShows = async () => {
           const success = await InvolvementAPI.recordLike(show.id);
           if (success) {
             const updatedLikesData = await InvolvementAPI.getLikes();
-            const updatedShowLikes = updatedLikesData.find(item => item.item_id === show.id);
+            const updatedShowLikes = updatedLikesData.find((item) => item.item_id === show.id);
             if (updatedShowLikes) {
               likeButton.textContent = `❤️ Like (${updatedShowLikes.likes})`;
             }
