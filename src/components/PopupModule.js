@@ -40,3 +40,19 @@ const mainContainer = document.querySelector('main .container');
   closeButton.addEventListener('click', () => {
     popupContainer.remove();
   });
+ const commentButton = popupContainer.querySelector('.popup-comment-button');
+  commentButton.addEventListener('click', async () => {
+    const commentName = popupContainer.querySelector('#commentName').value;
+    const commentText = popupContainer.querySelector('#commentText').value;
+
+    if (commentName && commentText) {
+      // Record the comment using InvolvementAPI
+      const success = await InvolvementAPI.recordComment(show.id, commentName, commentText);
+
+      if (success) {
+        popupContainer.querySelector('#commentName').value = '';
+        popupContainer.querySelector('#commentText').value = '';
+        await updateCommentList(show.id, commentListElement, commentCountElement);
+      }
+    }
+  });
