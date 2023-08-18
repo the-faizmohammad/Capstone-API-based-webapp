@@ -1,5 +1,5 @@
-// import createCard from './Card.js'; // Import createCard from Card.js
 import InvolvementAPI from './InvolvementAPI.js';
+import showPopup from './PopupModule.js';
 // Create cards
 const createCard = (show, initialLikes = 0) => {
   const card = document.createElement('div');
@@ -39,6 +39,7 @@ const fetchAndDisplayShows = async () => {
         const card = createCard(show, initialLikes);
 
         const likeButton = card.querySelector('.like-button');
+        const commentButton = card.querySelector('.comment-button');
 
         likeButton.addEventListener('click', async () => {
           const success = await InvolvementAPI.recordLike(show.id);
@@ -49,6 +50,10 @@ const fetchAndDisplayShows = async () => {
               likeButton.textContent = `❤️ Like (${updatedShowLikes.likes})`;
             }
           }
+        });
+
+        commentButton.addEventListener('click', () => {
+          showPopup(show); // Show popup with details and comments
         });
 
         showList.appendChild(card);
