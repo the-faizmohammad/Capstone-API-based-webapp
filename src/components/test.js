@@ -70,3 +70,19 @@ it('should handle comment recording failure', async () => {
     expect(fetch).toHaveBeenCalledTimes(1);
   }, 0);
 });
+
+// Test the getComments function
+it('should get comments successfully', async () => {
+  const mockComments = [/* Mocked comment data here */];
+  fetch.mockResolvedValue({
+    status: 200,
+    json: async () => mockComments,
+  });
+  // Provide a mock item ID
+  const comments = await InvolvementAPI.getComments(123);
+  expect(comments).toEqual(mockComments);
+
+  setTimeout(() => {
+    expect(fetch).toHaveBeenCalledTimes(1);
+  }, 0);
+});
